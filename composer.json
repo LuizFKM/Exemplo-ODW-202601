@@ -6,6 +6,7 @@
             "test\\": "test/",
             "model\\": "src/model/",
             "dao\\": "src/dao/",
+            "controller\\": "src/controller",
             "utils\\": "src/utils/"
         }
     },
