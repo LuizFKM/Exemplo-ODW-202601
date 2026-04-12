@@ -9,7 +9,7 @@ class Produto extends GenericModel{
     #[ORM\Column(type: 'string')]
     private $nome;
 
-    #[ORM\Column(type: 'decimal', precision: 2)]
+    #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
     private $preco;
 
     #[ORM\Column(type: 'string')]
