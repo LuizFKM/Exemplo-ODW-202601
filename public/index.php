@@ -15,11 +15,8 @@ define('BASE_URL', '/ProjetoExemplo');
 // Configuração do "Dispatcher" (Despachante) de rotas
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
     // Aqui você define suas rotas:
-    $r->get('/', 'ClienteController@index');
-    $r->get('/inicio', 'ClienteController@index');
     $r->get('/clientes', 'ClienteController@listar');
-    $r->get('/clientes/novo', 'ClienteController@novo');
-    $r->post('/clientes', 'ClienteController@salvar');
+    $r->get('/clientes/{id}', 'ClienteController@buscar');
 });
 
 // Pega apenas o caminho da URL (ex: de "/projeto/clientes?id=1" extrai apenas "/projeto/clientes")
