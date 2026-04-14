@@ -22,7 +22,6 @@
         <?= "<td>{$cliente->getId()}</td>" ?>
         <?= "<td>{$cliente->getNome()}</td>" ?>
         <?= "<td>{$cliente->getCpf()}</td>" ?>
-        <?= "<td><a href=" . BASE_URL . "/clientes/" . $cliente->getId() . ">Visualizar</a></td>" ?>
         <?= "</tr>" ?>
     <?php endforeach; ?>
     </tbody>
