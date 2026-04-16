@@ -1,5 +1,8 @@
-<?php /** @var \model\Cliente[] $clientes */ ?>
-<?php /** @var \model\Cliente $cliente */ ?>
+<?php
+/** @var \model\Cliente[] $clientes */
+/** @var \model\Cliente $cliente */
+$rota_clientes = BASE_URL . "/clientes";
+?>
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -14,6 +17,7 @@
     <th>#</th>
     <th>Nome</th>
     <th>CPF</th>
+    <th>Opções</th>
     </thead>
     <tbody>
     <?php foreach ($clientes as $cliente) : ?>
@@ -21,7 +25,12 @@
         <?= "<td>{$cliente->getId()}</td>" ?>
         <?= "<td>{$cliente->getNome()}</td>" ?>
         <?= "<td>{$cliente->getCpf()}</td>" ?>
-        <!-- TODO OPÇÕES DE VISUALIZAR, REMOVER ETC.-->
+        <?= "<td>
+            <a href='{$rota_clientes}/{$cliente->getId()}'>Visualizar</a>
+            <form action='{$rota_clientes}/{$cliente->getId()}/remover' method='POST'>
+                <button type='submit'>Remover</button>
+            </form>
+        </td>" ?>
         <?= "</tr>" ?>
     <?php endforeach; ?>
     </tbody>

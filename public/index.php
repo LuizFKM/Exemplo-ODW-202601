@@ -17,6 +17,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
     // Aqui você define suas rotas:
     $r->get('/clientes', 'ClienteController@listar');
     $r->get('/clientes/{id}', 'ClienteController@buscar');
+    $r->post('/clientes/{id}/remover', 'ClienteController@remover');
 });
 
 // Pega apenas o caminho da URL (ex: de "/projeto/clientes?id=1" extrai apenas "/projeto/clientes")
