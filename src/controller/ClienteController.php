@@ -8,6 +8,16 @@ use dao\ClienteDAO;
 class ClienteController
 {
 
+    public function novo(){
+        require __DIR__ . "/../view/cadastro-cliente.php";
+    }
+
+    public function cadastrar(){
+        echo $_POST['nome'];
+        echo $_POST['cpf'];
+        echo $_POST['data_nascimento'];
+    }
+
     public function listar()
     {
         try {
