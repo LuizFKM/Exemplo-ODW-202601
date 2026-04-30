@@ -1,3 +1,4 @@
+<?php /** @var model\Cliente $cliente */ ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -11,28 +12,29 @@
 <!-- o method indica o tipo da requisição (se GET ou POST) -->
 <!-- Usamos formulários quando queremos capturar dados do usuário para algo -->
 <!-- e usar eles para alguma operação do sistema -->
-    <form action="<?= BASE_URL . '/clientes/cadastrar' ?>" method="POST">
-        <!-- O label é um texto que aparece e indica o que será inserido -->
-        <!-- No seu atributo 'for', colocamos o ID do campo que ele é label  -->
-        <label for="nome">Nome:</label>
-        <!-- O input tem um id, que deve ser único em toda a página-->
-        <!-- o name é usado para transferir os dados do formulário pra o action -->
-        <!-- type indica o tipo do formulário (Se é data, numero, texto, senha) -->
-        <!-- required indica que o campo é obrigatório -->
-        <input id="nome" name="nome" type="text" required>
-        <br>
+<form action="<?= BASE_URL . '/clientes/cadastrar' ?>" method="POST">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($cliente->getId() ?? '') ?>">
+    <!-- O label é um texto que aparece e indica o que será inserido -->
+    <!-- No seu atributo 'for', colocamos o ID do campo que ele é label  -->
+    <label for="nome">Nome:</label>
+    <!-- O input tem um id, que deve ser único em toda a página-->
+    <!-- o name é usado para transferir os dados do formulário pra o action -->
+    <!-- type indica o tipo do formulário (Se é data, numero, texto, senha) -->
+    <!-- required indica que o campo é obrigatório -->
+    <input id="nome" name="nome" type="text" value="<?= htmlspecialchars($cliente->getNome() ?? '') ?>" required>
+    <br>
 
-        <label for="cpf">CPF</label>
-        <input id="cpf" name="cpf" type="text" required>
-        <br>
+    <label for="cpf">CPF</label>
+    <input id="cpf" name="cpf" type="text" value="<?= htmlspecialchars($cliente->getCpf() ?? '') ?>" required>
+    <br>
 
-        <label for="data_nascimento">Data de Nascimento</label>
-        <input id="data_nascimento" name="data_nascimento" type="date" required>
-        <br>
+    <label for="data_nascimento">Data de Nascimento</label>
+    <input id="data_nascimento" name="data_nascimento" type="date" value="<?= htmlspecialchars($cliente->getDataNascimento() ? $cliente->getDataNascimento()->format('Y-m-d') : '') ?>" required>
+    <br>
 
-        <!-- O botão "Submit" vai encaminhar o formulário para o ation correspondente -->
-        <button type="submit">Cadastrar</button>
-
-    </form>
+    <!-- O botão "Submit" vai encaminhar o formulário para o ation correspondente -->
+    <button type="submit">Cadastrar</button>
+</form>
+<a href="<?= BASE_URL . '/clientes' ?>">Voltar</a>
 </body>
 </html>
