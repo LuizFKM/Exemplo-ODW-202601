@@ -2,11 +2,14 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastro de Cliente</title>
+    <?php require_once 'templates/template-head.php' ?>
+    <title>Listagem de Clientes</title>
 </head>
-<body>
+<body class="container">
+
+<?php require_once "templates/template-menu.php" ?>
+
+
 <!-- Os formulários possuem dois atributos principais -->
 <!-- o action indica o endereço da página que vai receber os dados -->
 <!-- o method indica o tipo da requisição (se GET ou POST) -->
@@ -29,12 +32,15 @@
     <br>
 
     <label for="data_nascimento">Data de Nascimento</label>
-    <input id="data_nascimento" name="data_nascimento" type="date" value="<?= htmlspecialchars($cliente->getDataNascimento() ? $cliente->getDataNascimento()->format('Y-m-d') : '') ?>" required>
+    <input id="data_nascimento" name="data_nascimento" type="date"
+           value="<?= htmlspecialchars($cliente->getDataNascimento() ? $cliente->getDataNascimento()->format('Y-m-d') : '') ?>"
+           required>
     <br>
 
     <!-- O botão "Submit" vai encaminhar o formulário para o ation correspondente -->
     <button type="submit">Cadastrar</button>
 </form>
 <a href="<?= BASE_URL . '/clientes' ?>">Voltar</a>
+<?php require_once "templates/template-rodape.php" ?>
 </body>
 </html>

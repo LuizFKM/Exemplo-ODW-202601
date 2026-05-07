@@ -4,21 +4,25 @@
 $rota_clientes = BASE_URL . "/clientes";
 ?>
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php require_once 'templates/template-head.php' ?>
     <title>Listagem de Clientes</title>
 </head>
-<body>
+<body class="container">
+
+<?php require_once "templates/template-menu.php" ?>
+
 <h1>Listagem de Clientes</h1>
 <a href="<?= BASE_URL . '/clientes/novo' ?>">Cadastrar Cliente</a>
 <table>
-    <thead>
-    <th>#</th>
-    <th>Nome</th>
-    <th>CPF</th>
-    <th>Opções</th>
+    <thead>,
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Opções</th>
+    </tr>
     </thead>
     <tbody>
     <?php foreach ($clientes as $cliente) : ?>
@@ -37,6 +41,8 @@ $rota_clientes = BASE_URL . "/clientes";
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php require_once "templates/template-rodape.php" ?>
 
 </body>
 </html>
